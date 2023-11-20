@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 const theme = createTheme({
-	palette: {
-		mode: 'dark',
-	},
+	// palette: {
+	// 	mode: 'dark',
+	// },
 	typography: {
 		fontFamily: inter.style.fontFamily,
 	},

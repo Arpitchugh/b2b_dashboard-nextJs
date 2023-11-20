@@ -8,6 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -51,6 +52,7 @@ export default function SideNav() {
 					width: DRAWER_WIDTH,
 					boxSizing: 'border-box',
 					height: '100%',
+					background: '#0C0C0C',
 				},
 			}}
 			variant='permanent'
@@ -130,7 +132,11 @@ export default function SideNav() {
 				})}
 			</List>
 			<Divider sx={{ mt: 'auto' }} />
-			<List>
+			<List
+				sx={{
+					color: '#D4D4D4',
+				}}
+			>
 				{PLACEHOLDER_LINKS.map(
 					({
 						text,
@@ -151,17 +157,35 @@ export default function SideNav() {
 									)
 								}
 							>
-								<ListItemIcon>
+								<ListItemIcon
+									sx={{
+										color: '#6D6D6D',
+									}}
+								>
 									<Icon />
 								</ListItemIcon>
-								<ListItemText
-									primary={
-										text
-									}
-									secondary={
-										subText
-									}
-								/>
+
+								<Box>
+									<Typography
+										sx={{
+											color: '#D4D4D4',
+											fontWeight: '700',
+										}}
+									>
+										{
+											text
+										}
+									</Typography>
+									<Typography
+										sx={{
+											color: '#C8C8C8',
+										}}
+									>
+										{
+											subText
+										}
+									</Typography>
+								</Box>
 							</ListItemButton>
 						</ListItem>
 					)
