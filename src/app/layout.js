@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
 						sx={{
 							flexGrow: 1,
 							bgcolor: 'background.default',
-							ml: `200px`,
+							ml: `240px`,
 							mt: [
 								'48px',
 								'56px',

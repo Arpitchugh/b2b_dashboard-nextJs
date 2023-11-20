@@ -14,9 +14,9 @@ import Divider from '@mui/material/Divider';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
 import ChecklistIcon from '@mui/icons-material/Checklist';
-import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const DRAWER_WIDTH = 200;
+const DRAWER_WIDTH = 240;
 
 const LINKS = [
 	{ text: 'Overview', href: '/', icon: HomeIcon },
@@ -28,12 +28,17 @@ const LINKS = [
 	{ text: 'Data Cellar', href: '/data-cellar', icon: ChecklistIcon },
 ];
 
-const PLACEHOLDER_LINKS = [{ text: 'Settings', icon: SettingsIcon }];
+const PLACEHOLDER_LINKS = [
+	{
+		text: 'Intugine',
+		subText: 'Intugine Solutions Pvt LTD',
+		icon: AccountCircleIcon,
+		href: '/profile',
+	},
+];
 
 export default function SideNav() {
 	const [activeLink, setActiveLink] = React.useState('/');
-	console.log(activeLink, 'activeLink');
-	// Function to handle clicking on a link
 	const handleLinkClick = href => {
 		setActiveLink(href);
 	};
@@ -127,18 +132,34 @@ export default function SideNav() {
 			<Divider sx={{ mt: 'auto' }} />
 			<List>
 				{PLACEHOLDER_LINKS.map(
-					({ text, icon: Icon }) => (
+					({
+						text,
+						subText,
+						href,
+						icon: Icon,
+					}) => (
 						<ListItem
 							key={text}
 							disablePadding
 						>
-							<ListItemButton>
+							<ListItemButton
+								component={Link}
+								href={href}
+								onClick={() =>
+									handleLinkClick(
+										href
+									)
+								}
+							>
 								<ListItemIcon>
 									<Icon />
 								</ListItemIcon>
 								<ListItemText
 									primary={
 										text
+									}
+									secondary={
+										subText
 									}
 								/>
 							</ListItemButton>
